@@ -11,10 +11,10 @@ public class Draw extends JPanel{
 		super.paintComponent(g);
 		
 		g.setColor(Color.BLACK);
-		g.drawRect(9, 9, 514, 514);
+		g.drawRect(9, 9, 514, 258);
 		
 		for(int x=0; x < Grid.CELLCOUNT; x++) {
-			for(int y=0; y < Grid.CELLCOUNT; y++) {
+			for(int y=0; y < Grid.CELLCOUNT_Y; y++) {
 				if(Grid.cells[x][y]) {
 					g.setColor(Color.RED);
 					g.drawRect(x + 10, y + 10, 1, 1);

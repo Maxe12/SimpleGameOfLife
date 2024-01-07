@@ -4,6 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Grid {
 	public static final int CELLCOUNT = 512;
+	public static final int CELLCOUNT_Y = 256;
 	public static boolean[][] cells = new boolean[CELLCOUNT][CELLCOUNT];
 	
 	public final int startCells = 10000;
@@ -12,7 +13,7 @@ public class Grid {
 	public void init() {
 		for (int i = 0; i < startCells; i++) {
 			int x = genRandom(0, CELLCOUNT);
-			int y = genRandom(0, CELLCOUNT);
+			int y = genRandom(0, CELLCOUNT_Y);
 			cells[x][y] = true;
 		}
 	}
@@ -21,7 +22,7 @@ public class Grid {
 		gen++;
 		System.out.println("generation: " + gen);
 		for (int x = 0; x < CELLCOUNT; x++) {
-			for (int y = 0; y < CELLCOUNT; y++) {
+			for (int y = 0; y < CELLCOUNT_Y; y++) {
 				int neighbours = countNeighbours(x, y);
 				// rule: if cell is dead and has 3 neighbours revive it
 				if (neighbours == 3 && !cells[x][y]) {
